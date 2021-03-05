@@ -5,9 +5,9 @@ IMAGE_VERSION="2020.1"
 WORK_PATH=$(cd $(dirname $0); pwd)
 echo "WORK_PATH: ${WORK_PATH}"
 
-export PROJECTS_PATH=${WORK_PATH}/projects
+export PROJECTS_PATH=/home/${MY_NAME}/projects
 
-session=${IMAGE_NAME}
+session=${MY_NAME}
 
 tmux has-session -t $session >/dev/null 2>&1
 if [ $? = 0 ];then
