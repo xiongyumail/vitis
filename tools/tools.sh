@@ -48,6 +48,11 @@ if [ ! -d ".cache" ]; then
    sudo rm -rf ~/.cache
    sudo ln -s $PWD/.cache ~/.cache
 fi
+if [ ! -d ".Xilinx" ]; then
+   mkdir .Xilinx
+   sudo rm -rf ~/.Xilinx
+   sudo ln -s $PWD/.Xilinx ~/.Xilinx
+fi
 
 # vitis
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -89,6 +94,7 @@ if [ ! -f "${TEMP_PATH}/.tools/vitis" ]; then
    tar zxvf Xilinx_Unified_2020.1_0602_1208.tar.gz -C install_vitis
    ls install_vitis && sudo install_vitis/*/xsetup --agree 3rdPartyEULA,WebTalkTerms,XilinxEULA --batch Install --config install_vitis/install_config.txt --location ${TEMP_PATH}/vitis/Xilinx
    sudo rm -rf install_vitis
+   cp Xilinx.lic ~/.Xilinx/
    echo "source ${TEMP_PATH}/vitis/Xilinx/Vitis/2020.1/settings64.sh" >> ${HOME}/.bashrc
    echo "export VITIS_PATH=${TEMP_PATH}/vitis/Xilinx/Vitis/2020.1/bin" >> ${HOME}/.bashrc
    echo "Vitis install ok" >> ${TEMP_PATH}/.tools/vitis
