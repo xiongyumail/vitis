@@ -15,7 +15,7 @@ if [ $? = 0 ];then
     exit
 fi
 
-tmux new-session -d -s $session -n chip_test
+tmux new-session -d -s $session -n $session
 tmux split-window -t $session:0 -h
 
 tmux send-keys -t $session:0.0 'cd ${PROJECTS_PATH};vivado' C-m
