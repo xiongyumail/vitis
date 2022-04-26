@@ -81,7 +81,10 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
             qemu-user-static \
             debootstrap \
             kpartx \
-            dosfstools
+            dosfstools \
+            libcanberra-gtk-module \
+     	    vim-gtk \
+            openjdk-8-jre-zero
 
 wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb 
 sudo dpkg -i /tmp/libpng12.deb 
@@ -107,6 +110,7 @@ if [ ! -f "${TEMP_PATH}/.tools/tmux" ]; then
    cd ${WORK_PATH}
    cd tmux
    ln -s $PWD/.tmux.conf ~/.tmux.conf
+   ln -s $PWD/.vimrc ~/.vimrc
    echo "export TMUX_PATH=${TEMP_PATH}/tmux" >> ${HOME}/.bashrc
    echo "tmux install ok" >> ${TEMP_PATH}/.tools/tmux
 fi
