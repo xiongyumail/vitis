@@ -66,7 +66,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
             libfreetype6 \
             libfontconfig \
             lsb-release \
-            libswt-gtk-3-java \
             xterm \
             libnss3 \
             libasound2 \
@@ -84,7 +83,10 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
             dosfstools \
             libcanberra-gtk-module \
      	    vim-gtk \
-            openjdk-8-jre-zero
+            openjdk-8-jre-zero \
+            libtinfo5 \
+            libxrender-dev \
+            libxtst-dev 
 
 wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb 
 sudo dpkg -i /tmp/libpng12.deb 
