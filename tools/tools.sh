@@ -88,20 +88,15 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
             libxrender-dev \
             libxtst-dev 
 
-wget -q -O /tmp/libpng12.deb http://mirrors.kernel.org/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb 
-sudo dpkg -i /tmp/libpng12.deb 
 if [ ! -f "${TEMP_PATH}/.tools/vitis" ]; then
    cd ${WORK_PATH}
    cd vitis
    mkdir ${TEMP_PATH}/vitis
-   mkdir install_vitis
-   cp install_config.txt install_vitis/
-   tar zxvf Xilinx_Unified_2020.1_0602_1208.tar.gz -C install_vitis
-   ls install_vitis && sudo install_vitis/*/xsetup --agree 3rdPartyEULA,WebTalkTerms,XilinxEULA --batch Install --config install_vitis/install_config.txt --location ${TEMP_PATH}/vitis/Xilinx
-   sudo rm -rf install_vitis
+   ls install_vitis && sudo install_vitis/*/xsetup -a XilinxEULA,3rdPartyEULA -b Install -c install_config.txt --location ${TEMP_PATH}/vitis/Xilinx
+   #sudo rm -rf install_vitis
    cp Xilinx.lic ~/.Xilinx/
-   echo "source ${TEMP_PATH}/vitis/Xilinx/Vitis/2020.1/settings64.sh" >> ${HOME}/.bashrc
-   echo "export VITIS_PATH=${TEMP_PATH}/vitis/Xilinx/Vitis/2020.1/bin" >> ${HOME}/.bashrc
+   echo "source ${TEMP_PATH}/vitis/Xilinx/Vitis/2023.2/settings64.sh" >> ${HOME}/.bashrc
+   echo "export VITIS_PATH=${TEMP_PATH}/vitis/Xilinx/Vitis/2023.2/bin" >> ${HOME}/.bashrc
    echo "Vitis install ok" >> ${TEMP_PATH}/.tools/vitis
 fi
 
