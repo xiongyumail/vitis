@@ -22,5 +22,5 @@ sudo apt install docker.io
 ## Running
 
 ```
-./vitis.sh
+./run.sh
 ```
